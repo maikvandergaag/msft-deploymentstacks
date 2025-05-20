@@ -1,19 +1,5 @@
 {
-  "experimentalFeaturesEnabled": { 
-    "userDefinedFunctions": true,
-    "asserts": true,
-    "compileTimeImports": true,
-    "dynamicTypeLoading": true,
-    "extensibility": true,
-    "optionalModuleNames": true,
-    "prettyPrinting": true,
-    "providerRegistry": true,
-    "publishSource": true,
-    "resourceTypedParamsAndOutputs": true,
-    "sourceMapping": true,
-    "symbolicNameCodegen": true,
-    "testFramework": true
-  },
+  "experimentalFeaturesEnabled": {},
   "moduleAliases": {
     "br": {
       "gaag": {
@@ -31,16 +17,10 @@
   "analyzers": {
     "core": {
       "rules": {
-        "no-unused-params": {
-          "level": "error"
-        },
         "adminusername-should-not-be-literal": {
           "level": "error"
         },
         "artifacts-parameters": {
-          "level": "error"
-        },
-        "no-hardcoded-env-urls": {
           "level": "error"
         },
         "decompiler-cleanup": {
@@ -61,76 +41,95 @@
         "max-resources": {
           "level": "error"
         },
-        "max-variables" : {
+        "max-variables": {
           "level": "error"
         },
-        "nested-deployment-template-scoping" : {
+        "nested-deployment-template-scoping": {
           "level": "error"
         },
         "no-conflicting-metadata" : {
           "level": "error"
         },
-        "no-deployments-resources": {
+        "no-deployments-resources" : {
           "level": "error"
         },
-        "no-hardcoded-location" :{
-          "level": "error"
-        }, 
-        "no-loc-expr-outside-params":{
+        "no-hardcoded-env-urls": {
           "level": "error"
         },
-        "no-unnecessary-dependson" : {
+        "no-hardcoded-location": {
           "level": "error"
         },
-        "no-unused-existing-resources" : {
+        "no-loc-expr-outside-params": {
+          "level": "error"
+        },
+        "no-unnecessary-dependson": {
+          "level": "error"
+        },
+        "no-unused-existing-resources": {
+          "level": "error"
+        },
+        "no-unused-params": {
           "level": "error"
         },
         "no-unused-vars": {
           "level": "error"
         },
-        "outputs-should-not-contain-secrets" :{
+        "outputs-should-not-contain-secrets": {
           "level": "error"
         },
-        "prefer-interpolation" :{
+        "prefer-interpolation": {
           "level": "error"
         },
-        "prefer-unquoted-property-names":{
+        "prefer-unquoted-property-names": {
           "level": "error"
         },
-        "protect-commandtoexecute-secrets" :{
+        "protect-commandtoexecute-secrets": {
           "level": "error"
         },
-        "secure-parameter-default" :{
+        "secure-parameter-default": {
           "level": "error"
         },
-        "secure-params-in-nested-deploy" :{
+        "secure-params-in-nested-deploy": {
           "level": "error"
         },
-        "secure-secrets-in-params" :{
+        "secure-secrets-in-params": {
           "level": "error"
         },
-        "simplify-interpolation" :{
+        "simplify-interpolation": {
           "level": "error"
         },
-        "simplify-json-null" :{
+        "simplify-json-null": {
           "level": "error"
         },
-        "use-parent-property" :{
+        "use-parent-property": {
           "level": "error"
         },
-        "use-recent-api-versions" :{
+        "use-recent-api-versions": {
+          "level": "error",
+          "maxAllowedAgeInDays": 730
+        },
+        "use-recent-module-versions": {
           "level": "error"
         },
-        "use-resource-id-functions" :{
+        "use-resource-id-functions": {
           "level": "error"
         },
-        "use-resource-symbol-reference" :{
+        "use-resource-symbol-reference": {
           "level": "error"
         },
-        "use-stable-resource-identifiers" :{
+        "use-safe-access": {
           "level": "error"
         },
-        "use-stable-vm-image" :{
+        "use-secure-value-for-secure-inputs": {
+          "level": "error"
+        },
+        "use-stable-resource-identifiers": {
+          "level": "error"
+        },
+        "use-stable-vm-image": {
+          "level": "error"
+        },
+        "what-if-short-circuiting": {
           "level": "error"
         }
       }

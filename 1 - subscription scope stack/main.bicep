@@ -14,24 +14,14 @@ param name string
 param location string = deployment().location 
 
 
-resource rg1 'Microsoft.Resources/resourceGroups@2023-07-01' = {
+resource rg1 'Microsoft.Resources/resourceGroups@2025-03-01' = {
   name: 'mvp-rg-${name}-rg1'
   location: location
 }
 
-resource rg2 'Microsoft.Resources/resourceGroups@2023-07-01' = {
+resource rg2 'Microsoft.Resources/resourceGroups@2025-03-01' = {
   name: 'mvp-rg-${name}-rg2'
   location: location
-}
-
-module str1 'storageaccount.bicep' = {
-  name: 'deployment-str1'
-  scope: rg1
-  params: {
-    name: '${name}-st1'
-    location: location
-    env:'dev'
-  }
 }
 
 module str2 'storageaccount.bicep' = {

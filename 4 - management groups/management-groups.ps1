@@ -9,6 +9,7 @@ az stack mg create --name 'stack-demo-04' `
                    --template-file '.\demo-04\main.bicep' `
                    --parameters '.\demo-04\main-param.bicepparam' `
                    --location 'westeurope' `
+                   --action-on-unmanage 'deleteAll' `
                    --deny-settings-mode 'denyWriteAndDelete' `
                    --deny-settings-apply-to-child-scopes  `
                    --deny-settings-excluded-actions 'Microsoft.Resources/tags/*'

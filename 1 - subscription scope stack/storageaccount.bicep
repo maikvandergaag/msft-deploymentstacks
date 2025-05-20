@@ -27,7 +27,7 @@ param env string
 
 var storageName = toLower('str${take(replace(name, '-',''),15)}${env}')
 
-resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageName
   location: location
   sku: {

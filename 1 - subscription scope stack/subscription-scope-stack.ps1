@@ -9,7 +9,8 @@ az stack sub create --name 'stack-demo-02' `
                     --template-file '.\demo-02\main.bicep' `
                     --parameters '.\demo-02\main-param.bicepparam' `
                     --location 'westeurope' `
-                    --deny-settings-mode 'none'
+                    --deny-settings-mode 'none' `
+                    --delete-resources --yes
                       
 az stack sub create --name 'stack-demo-02' `
                     --template-file '.\demo-02\main.bicep' `
