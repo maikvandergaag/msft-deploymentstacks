@@ -25,6 +25,8 @@ param storageSKU string = 'Standard_LRS'
 @description('The environment were the service is beign deployed to (tst, acc, prd, dev)')
 param env string
 
+param containers array = []
+
 var storageName = toLower('str${take(replace(name, '-',''),15)}${env}')
 
 resource storage 'Microsoft.Storage/storageAccounts@2024-01-01' = {
@@ -41,4 +43,21 @@ resource storage 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   }
 }
 
+resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2024-01-01' = {
+  parent: storage
+  name: 'default'
+}
+
+
+resource storageContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2024-01-01' = [for container in containers : {
+  name: container
+  parent: blobService
+}]
+
+
 output name string = storage.name
+
+output deployedContainers array = [for (name, i) in containers: {
+  name: storageContainer[i].name
+  id: storageContainer[i].id
+}]

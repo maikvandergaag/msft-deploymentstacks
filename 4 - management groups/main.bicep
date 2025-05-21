@@ -1,4 +1,4 @@
-targetScope = 'managementGroup'
+targetScope = 'subscription'
 
 metadata info = {
   title: 'Main file for demo 04'
@@ -28,7 +28,7 @@ module applicationGroup 'rg.bicep' ={
   name: 'deploy-applicationGroup'
   params:{
     name: name
-    prefix: 'mvp'
+    prefix: 'sponsor'
     location: location
   }
   scope: subscription(resourcesSubscription)
@@ -42,7 +42,7 @@ module appInsights 'br/gaag:applicationinsights:0.0.1' = {
     name: name
   }
   dependsOn: [applicationGroup]
-  scope: resourceGroup(resourcesSubscription, 'mvp-rg-${name}')
+  scope: resourceGroup(resourcesSubscription, 'sponsor-rg-${name}')
 }
 
 module loganalytics 'br/gaag:loganalytics:0.0.1' = {

@@ -31,5 +31,10 @@ module str2 'storageaccount.bicep' = {
     name: '${name}-st2'
     location: location
     env: 'dev'
+    containers: [
+      'demo'
+      'demo1'
+      'demo2'
+    ]
   }
 }
