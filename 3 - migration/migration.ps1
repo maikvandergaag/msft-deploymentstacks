@@ -6,7 +6,7 @@ az group create --name 'mvp-rg-unmanaged-resources' --location 'westeurope'
 az deployment group create --name 'stack-migration' `
                            --resource-group 'mvp-rg-unmanaged-resources' `
                            --template-file '.\3 - migration\main.bicep' `
-                           --parameters '.\3 - deny settings\main-param.bicepparam'
+                           --parameters '.\3 - migration\main-param.bicepparam'
                       
 
 az stack group create --name 'stack-migration' `

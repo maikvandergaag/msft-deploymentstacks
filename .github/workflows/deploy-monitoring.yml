@@ -1,0 +1,52 @@
+name: Deploy to Monitoring to Azure
+run-name: Deploy to Azure - ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.workflow_run_id }}
+
+on:
+  workflow_run:
+    workflows: ["Build Monitoring IaC"]
+    types: [completed]
+    branches:
+      - 'main'
+  workflow_dispatch:
+    inputs:
+      workflow_run_id:
+        description: 'Workflow run ID'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    environment: monitoring
+    name: Deploy to Azure
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.workflow_run_id }}
+          github-token: ${{ github.token}}
+          name: iac
+      - name: Azure CLI script
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            cd '5 - monitoring'
+            az stack sub create --name 'integration-monitoring' \
+                    --template-file 'main.bicep' \
+                    --parameters 'main.bicepparam' \
+                    --deny-settings-mode 'denyWriteAndDelete' \
+                    --action-on-unmanage 'deleteAll' \
+                    --location 'westeurope' \
+                    --deny-settings-excluded-actions 'Microsoft.OperationalInsights/workspaces/sharedKeys/action' \
+                    --yes
