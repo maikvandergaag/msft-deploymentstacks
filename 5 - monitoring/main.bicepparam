@@ -8,4 +8,5 @@ param tags = {
   environment: env
   purpose: 'monitoring'
   version: '1.0.0'
+  clean: 'false'
 }
