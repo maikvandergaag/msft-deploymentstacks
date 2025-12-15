@@ -15,5 +15,5 @@ az stack group create --name 'stack-migration' `
                       --parameters '.\3 - migration\main-param.bicepparam' `
                       --action-on-unmanage 'deleteAll' `
                       --deny-settings-mode 'denyWriteAndDelete' `
-                      --deny-settings-excluded-principals '69995275-0992-4318-ab63-9f8d64c007c6'
+                      --deny-settings-excluded-principals '23aa11c6-ccfa-40ab-b4ba-ef39e73267a7'
 

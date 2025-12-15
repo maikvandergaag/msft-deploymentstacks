@@ -38,3 +38,18 @@ module str2 'storageaccount.bicep' = {
     ]
   }
 }
+
+module str1 'storageaccount.bicep' = {
+  name: 'deployment-str1'
+  scope: rg1
+  params: {
+    name: '${name}-st1'
+    location: location
+    env: 'dev'
+    containers: [
+      'demo'
+      'demo1'
+      'demo2'
+    ]
+  }
+}
